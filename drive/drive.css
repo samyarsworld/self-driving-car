@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.driving {
+  background-color: darkgrey;
+  text-align: center;
+}
+
+#canvas {
+  background-color: lightblue;
+  height: 100%;
+}
