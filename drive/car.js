@@ -1,35 +1,55 @@
 class Car {
-  constructor(x, y, width, height) {
+  constructor(x, y, width, height, carType, maxSpeed, color) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
+    this.corners = [];
     this.speed = 0;
-    this.maxSpeed = 3;
+    this.maxSpeed = maxSpeed;
     this.acceleration = 0.2;
     this.breakSpeed = 0.05;
     this.angle = 0;
+    this.color = color;
 
-    this.direction = new Control();
+    this.accident = false;
+
+    this.direction = new Control(carType);
+
+    if (carType == "driver") {
+      this.sensor = new Sensor(this);
+    }
   }
 
-  update() {
-    this.#move();
+  update(roadBorders, traffic) {
+    if (!this.accident) {
+      this.corners = this.#createCarBoundaries();
+      this.accident = this.#checkCollision(roadBorders, traffic);
+      this.#move();
+    }
+
+    if (this.sensor) {
+      this.sensor.update(roadBorders, traffic);
+    }
   }
 
   draw(ctx) {
-    // Rotate the vehicle
-    // ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate(-this.angle);
-
+    if (this.accident) {
+      ctx.fillStyle = "gray";
+    } else {
+      ctx.fillStyle = this.color;
+    }
     // Draw the driver vehicle
     ctx.beginPath();
-    ctx.rect(-this.width / 2, -this.height / 2, this.width, this.height);
+    ctx.moveTo(this.corners[0].x, this.corners[0].y);
+    for (let i = 1; i < this.corners.length; i++) {
+      ctx.lineTo(this.corners[i].x, this.corners[i].y);
+    }
     ctx.fill();
 
-    // Stop infinite angle update
-    // ctx.restore();
+    if (this.sensor) {
+      this.sensor.draw(ctx);
+    }
   }
 
   #move() {
@@ -70,5 +90,42 @@ class Car {
 
     this.x -= Math.sin(this.angle) * this.speed;
     this.y -= Math.cos(this.angle) * this.speed;
+  }
+
+  #createCarBoundaries() {
+    const corners = [];
+    const rad = Math.hypot(this.width, this.height) / 2;
+    const alpha = Math.atan2(this.width, this.height);
+    corners.push({
+      x: this.x - Math.sin(this.angle - alpha) * rad,
+      y: this.y - Math.cos(this.angle - alpha) * rad,
+    });
+    corners.push({
+      x: this.x - Math.sin(this.angle + alpha) * rad,
+      y: this.y - Math.cos(this.angle + alpha) * rad,
+    });
+    corners.push({
+      x: this.x - Math.sin(Math.PI + this.angle - alpha) * rad,
+      y: this.y - Math.cos(Math.PI + this.angle - alpha) * rad,
+    });
+    corners.push({
+      x: this.x - Math.sin(Math.PI + this.angle + alpha) * rad,
+      y: this.y - Math.cos(Math.PI + this.angle + alpha) * rad,
+    });
+    return corners;
+  }
+
+  #checkCollision(roadBorders, traffic) {
+    for (let i = 0; i < roadBorders.length; i++) {
+      if (isCollision(this.corners, roadBorders[i])) {
+        return true;
+      }
+    }
+    for (let i = 0; i < traffic.length; i++) {
+      if (isCollision(this.corners, traffic[i].corners)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

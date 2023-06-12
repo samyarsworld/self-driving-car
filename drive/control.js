@@ -1,10 +1,15 @@
 class Control {
-  constructor() {
+  constructor(carType) {
     this.forward = false;
     this.backward = false;
     this.left = false;
     this.right = false;
-    this.#addListeners();
+
+    if (carType == "driver") {
+      this.#addListeners();
+    } else {
+      this.forward = true;
+    }
   }
 
   #addListeners() {
