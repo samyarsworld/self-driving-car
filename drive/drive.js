@@ -2,17 +2,18 @@ let canvas = /** @type {HTMLCanvasElement} */ (
   document.getElementById("canvas")
 );
 canvas.width = 200;
-
 let ctx = canvas.getContext("2d");
+
 const road = new Road(canvas.width / 2, canvas.width * 0.9, (lanes = 3));
 const car = new Car(
   road.getLaneCenter(1),
   400,
   30,
   50,
-  "driver",
-  (maxSpeed = 3),
-  "black"
+  "black",
+  "AI",
+  (acceleration = 0.2),
+  (maxSpeed = 3)
 );
 const traffic = [
   new Car(
@@ -20,9 +21,10 @@ const traffic = [
     100,
     30,
     50,
+    "blue",
     "traffic",
-    (maxSpeed = 2),
-    "blue"
+    (acceleration = 0.2),
+    (maxSpeed = 2)
   ),
 ];
 // Start the game loop

@@ -1,16 +1,16 @@
 class Sensor {
-  constructor(car, rayCount = 3) {
+  constructor(car, rayCount = 5) {
     this.car = car;
     this.rayCount = rayCount;
     this.rayLength = 100;
-    this.raySpread = Math.PI / 4;
+    this.raySpread = Math.PI / 2;
     this.rays = [];
 
     this.obstacleInfo = [];
   }
 
   update(roadBorders, traffic) {
-    this.#drawRays();
+    this.#makeRays();
     this.obstacleInfo = [];
     for (let i = 0; i < this.rays.length; i++) {
       this.obstacleInfo.push(
@@ -43,11 +43,11 @@ class Sensor {
     }
   }
 
-  #drawRays() {
+  #makeRays() {
     this.rays = [];
     for (let i = 0; i < this.rayCount; i++) {
       const rayAngle =
-        car.angle +
+        car.steerAngle +
         linearCopy(
           this.raySpread / 2,
           -this.raySpread / 2,
@@ -63,7 +63,7 @@ class Sensor {
   }
 
   #getObstacleInfo(ray, roadBorders, traffic) {
-    let collisions = [];
+    let obstacles = [];
     for (let i = 0; i < roadBorders.length; i++) {
       const intersection = getIntersection(
         ray[0],
@@ -72,7 +72,7 @@ class Sensor {
         roadBorders[i][1]
       );
       if (intersection) {
-        collisions.push(intersection);
+        obstacles.push(intersection);
       }
     }
 
@@ -86,15 +86,15 @@ class Sensor {
           trafficCorners[(j + 1) % trafficCorners.length]
         );
         if (intersection) {
-          collisions.push(intersection);
+          obstacles.push(intersection);
         }
       }
     }
 
-    if (collisions.length != 0) {
-      const distanceToCollisions = collisions.map((col) => col.distance);
+    if (obstacles.length != 0) {
+      const distanceToCollisions = obstacles.map((col) => col.distance);
       const minDistanceToCollision = Math.min(...distanceToCollisions);
-      return collisions.find((c) => c.distance == minDistanceToCollision);
+      return obstacles.find((c) => c.distance == minDistanceToCollision);
     } else {
       return null;
     }
