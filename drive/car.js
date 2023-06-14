@@ -51,8 +51,6 @@ class Car {
         this.direction.right = outputs[1];
         this.direction.forward = outputs[2];
         this.direction.backward = outputs[3];
-
-        console.log(outputs);
       }
     }
   }

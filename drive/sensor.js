@@ -47,7 +47,7 @@ class Sensor {
     this.rays = [];
     for (let i = 0; i < this.rayCount; i++) {
       const rayAngle =
-        car.steerAngle +
+        this.car.steerAngle +
         linearCopy(
           this.raySpread / 2,
           -this.raySpread / 2,

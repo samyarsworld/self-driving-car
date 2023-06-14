@@ -10,9 +10,14 @@
   <body>
     <div class="driving">
       <canvas id="canvas"></canvas>
+      <div class="buttons">
+        <button onclick="save()">💾</button>
+        <button onclick="discard()">🗑️</button>
+      </div>
+      <canvas id="canvas-network"></canvas>
     </div>
+    <script src="visualizer.js"></script>
     <script src="neuralNetwork.js"></script>
-
     <script src="utils.js"></script>
     <script src="road.js"></script>
     <script src="car.js"></script>
