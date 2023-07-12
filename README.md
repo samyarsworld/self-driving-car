@@ -22,13 +22,16 @@ I have developed a cutting-edge system that leverages neural networks to enable 
 
 The core of this project lies in the powerful neural network algorithms that process the collected data and make intelligent decisions regarding changing directions and adapting to various traffic scenarios. Through an iterative process, the system continuously evaluates the performance of different cars on the road, allowing the identification of the most successful specimen.
 
-This project represents a captivating convergence of computer science, machine learning, and transportation engineering. The main features include:
+This project represents a captivating convergence of computer science, machine learning, and transportation engineering.
+
+The main features include:
 
 * Object-oriented design in JavaScript
 * Algorithm implementation to power a neural network with 3 layers
 * Frontend design using JavaScript Canvas and Context
 * Design a sensor object to collect data using mathematical and physical concepts
 * Specimen save capability to browser local storage
+* Visualization of the neural network (taken from Radu Mariescu-Istodor visualization code)
 
 <a name="demo"></a>
 ## Demo
@@ -47,9 +50,11 @@ A GUI of the self-driving car including a simple AI, all written in JavaScript.
 
 <a name="usage"></a>
 ## Usage
-A link to 
+A link to the live website can be found here:
 
-As soon as you see a car outperforming the others (passing the traffic), click on the save button in the middle of the screen. That will save this particular car to your browser's local storage and when you refresh the page, the saved species will be used to create new species that can most likely do better. The delete button will delete the saved specie from your local storage.
+https://self-driving-car-ln2n.onrender.com/
+
+To see the best result of your specie development, as soon as you see a car outperforming the others (passing the traffic), click on the save button in the middle of the screen. That will save this particular car to your browser's local storage and when you refresh the page, the saved species will be used to create new species that can most likely do better. The delete button will delete the saved specie from your local storage.
 
 
 <a name="installation"></a>
@@ -58,7 +63,6 @@ As soon as you see a car outperforming the others (passing the traffic), click o
 ```
 git clone https://github.com/samyarsworld/self-driving-car.git
 cd self-driving-car/drive
-open index.html
 ```
 Open index.html in the browser.
 
