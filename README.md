@@ -8,7 +8,6 @@
 3. [Technologies](#tech)
 4. [Usage](#usage)
     * [Installation](#installation)
-    * [Game Controls](#controls)
 5. [Developer Features](#dev)
 6. [Future Improvements](#future)
     * [Efficiency and AI Power](#power)
@@ -34,16 +33,8 @@ This project represents a captivating convergence of computer science, machine l
 <a name="demo"></a>
 ## Demo
 A GUI of the self-driving car including a simple AI, all written in JavaScript.
-<p align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWM4ZDAwYzg2OGJhNWNkZmIzMTUzZTc5NzZiNjEwMmZkYTdhNjU3NyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/UemgyvVLgpZdmFz1AO/giphy.gif" width="600"/>
+<p align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2plZGRyYWMwampvbnljc3hlaHhscm1oZ244bmJkMDVlbXQ2N2NvcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/idPaw8hekMD8kIZEkT/giphy.gif" width="600"/>
 </p>
-
-<p align="center">
-<img src="github-static/main.png" width="600"/>
-</p>
-
-| Human vs Human   | Human vs AI (AI is controlling black)  |
-|:----------------------|:------------------|
-| <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWY4Mjg5YTdkNDczMDNhYzRiMDQ5YzdlMzU0YjM2OTUwZGIxMGU4ZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/EnyTrJyjjwTcAkM862/giphy.gif" width="420"  frameBorder="0" class="giphy-embed" allowFullScreen /> | <img src="https://media.giphy.com/media/YNZ1U9FB1VM9KDmdsG/giphy.gif" width="420" frameBorder="0" class="giphy-embed" allowFullScreen /> |
 
 
 <a name="tech"></a>
@@ -70,10 +61,6 @@ cd self-driving-car/drive
 open index.html
 ```
 Open index.html in the browser.
-
-<a name="controls"></a>
-### Game Controls
-To make 
 
 
 <a name="dev"></a>
