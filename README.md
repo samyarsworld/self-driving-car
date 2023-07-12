@@ -37,7 +37,7 @@ The main features include:
 
 <a name="demo"></a>
 ## Demo
-A GUI of the self-driving car including a simple AI, all written in JavaScript.
+A GUI of the self-driving car:
 <p align="center"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2plZGRyYWMwampvbnljc3hlaHhscm1oZ244bmJkMDVlbXQ2N2NvcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/idPaw8hekMD8kIZEkT/giphy.gif" width="600"/>
 </p>
 
